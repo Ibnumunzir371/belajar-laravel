@@ -20,6 +20,7 @@ class BookController extends Controller
             'year' => 'required',
         ]);
 
+
         // untuk memunculkan pesan 
         //,[
         //     "name" =>"harus di isi"
