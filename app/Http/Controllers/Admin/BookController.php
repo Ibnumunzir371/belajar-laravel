@@ -25,12 +25,13 @@ class BookController extends Controller
         //,[
         //     "name" =>"harus di isi"
         // ]
-        book::create($request->all());
+        book::create($request->all()); 
 
         return redirect()->route("book-index");
-    }
+    } 
 
     public function edit($id){
+        
         $book = book::where("id", $id)->first();
         return view("admin.book.edit", compact("book"));
     }
@@ -50,7 +51,13 @@ class BookController extends Controller
         return redirect()->route("book-index");
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request , $id){
+        $this->validate($request, [
+            'name' => 'required',
+            'author' => 'required',
+            'year' => 'required',
+        ]);
+
         $book = book::where("id", $id)->first();
         $book->update($request->all());
 

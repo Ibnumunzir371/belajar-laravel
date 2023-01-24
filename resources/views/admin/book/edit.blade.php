@@ -68,7 +68,7 @@
         <div class="mb-3">
             <label for="author" class="form-label">Penulis</label>
             <input name="author" type="text" value="{{$book->author}}" class="form-control" id="author">
-            @error('name')
+            @error('author')
             <span class="text-danger">
                 <strong>{{ $message }}</strong>
             </span>
@@ -77,7 +77,7 @@
         <div class="mb-3">
             <label for="year" class="form-label">Tahun Terbit</label>
             <input name="year" type="text" value="{{$book->year}}" class="form-control" id="year">
-            @error('name')
+            @error('year')
             <span class="text-danger">
                 <strong>{{ $message }}</strong>
             </span>

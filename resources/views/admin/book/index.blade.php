@@ -59,7 +59,7 @@
         <thead>
             <tr>
             <th scope="col">No</th> 
-            <th scope="col">Nama</th>
+            <th scope="col">Nama Buku</th>
             <th scope="col">Penulis</th>
             <th scope="col">Tahun Terbit</th>
             <th scope="col">Action</th>
