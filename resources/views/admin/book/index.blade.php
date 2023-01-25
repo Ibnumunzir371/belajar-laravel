@@ -54,7 +54,9 @@
 
 @section('content')
 <div class="card card-body">
+    @if (Auth::user()->role == "admin")
     <a href="{{route("book-create")}}"><button class="btn btn-primary">+ tambahkan data</button></a>
+    @endif
     <table class="table table-striped mt-3">
         <thead>
             <tr>
@@ -62,7 +64,9 @@
             <th scope="col">Nama Buku</th>
             <th scope="col">Penulis</th>
             <th scope="col">Tahun Terbit</th>
+            @if (Auth::user()->role == "admin")
             <th scope="col">Action</th>
+            @endif
             </tr>
         </thead>
         <tbody>
@@ -72,6 +76,7 @@
             <td>{{$item->name}}</td>
             <td>{{$item->author}}</td>
             <td>{{$item->year}}</td>
+            @if (Auth::user()->role == "admin")
             <td>
                 <a class="btn btn-primary" href="{{route("book-edit", $item->id)}}">
                     Edit
@@ -85,6 +90,7 @@
                     type="submit">Hapus</button>
                 </form>
             </td>
+            @endif
             </tr>
             @endforeach     
         </tbody>

@@ -83,7 +83,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Login</title>
+    <title>Login</title>
 
     <!-- Custom fonts for this template-->
     @include('backend.partial.link')
@@ -116,7 +116,7 @@
                                     <form class="user" method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror""
+                                            <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror"
                                                 id="exampleInputEmail" placeholder="Enter Email Address..." name="email">
                                                 @error('email')
                                                     <span class="invalid-feedback" role="alert">
@@ -125,7 +125,7 @@
                                                 @enderror
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror""
+                                            <input type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
                                                 id="exampleInputPassword" placeholder="Password" name="password">
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -145,7 +145,7 @@
                                         <a class="small" href="#">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="#">Create an Account!</a>
+                                        <a class="small" href="{{ route('register') }}">Register</a>
                                     </div>
                                 </div>
                             </div>
