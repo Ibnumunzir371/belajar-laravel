@@ -27,7 +27,7 @@ class BookController extends Controller
         // ]
         book::create($request->all()); 
 
-        return redirect()->route("book-index");
+        return redirect()->route("book-index")->with('status','Sukses insert data book');
     } 
 
     public function edit($id){
@@ -38,7 +38,7 @@ class BookController extends Controller
 
     public function index(){
         //untuk menampilkan semua data
-        $books = book::all();
+        $books = book::paginate(5);
         //kode untuk menampilkan debugging/untuk mengetes apakah data berhasil ditangkap
         //return response()->json($books); 
         return view('admin.book.index', compact("books"));
@@ -48,20 +48,20 @@ class BookController extends Controller
         $book = book::where("id", $id)->first();
         $book->delete();
 
-        return redirect()->route("book-index");
+        return redirect()->route("book-index")->with('status','Sukses delete data book');
     }
 
     public function update(Request $request , $id){
-        $this->validate($request, [
-            'name' => 'required',
-            'author' => 'required',
-            'year' => 'required',
-        ]);
+        // $this->validate($request, [
+        //     'name' => 'required',
+        //     'author' => 'required',
+        //     'year' => 'required',
+        // ]);
 
         $book = book::where("id", $id)->first();
         $book->update($request->all());
 
-        return redirect()->route("book-index");
+        return redirect()->route("book-index")->with('status','Sukses update data book');
 
     }
 }

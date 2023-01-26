@@ -55,7 +55,7 @@
 @section('content')
 <div class="card card-body">
     @if (Auth::user()->role == "admin")
-    <a href="{{route("book-create")}}"><button class="btn btn-primary">+ tambahkan data</button></a>
+    <a href="{{route("book-create")}}"><button class="btn btn-primary">+ tambahkan buku</button></a>
     @endif
     <table class="table table-striped mt-3">
         <thead>
@@ -94,7 +94,20 @@
             </tr>
             @endforeach     
         </tbody>
-        </table>
-            
+        </table>   
         </div>
+
+        <div class="mt-2 float-right">
+            {{ $books->links()}}
+        </div>
+
+        @if(session('status'))
+        <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Sukses!',
+            text: "{{session('status')}}",
+          });
+        </script>
+        @endif
 @endsection
