@@ -140,10 +140,7 @@
                                         <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
                                         <hr>
                                     </form>
-                                    
-                                    <div class="text-center">
-                                        <a class="small" href="#">Forgot Password?</a>
-                                    </div>
+                                 
                                     <div class="text-center">
                                         <a class="small" href="{{ route('register') }}">Register</a>
                                     </div>

@@ -65,6 +65,19 @@
             </span>
             @enderror
         </div>
+        <div class="form-group">
+            <select class="form-control" name="category_id" id="category_id">
+                <option label="pilih category"></option>
+                @foreach ($category as $item)
+                    <option value="{{$item->id}}">{{$item->name}}</option>
+                @endforeach
+            </select>
+            @error('name')
+            <span class="text-danger">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
         <div class="mb-3">
             <label for="author" class="form-label">Penulis</label>
             <input name="author" type="text" class="form-control" id="author">

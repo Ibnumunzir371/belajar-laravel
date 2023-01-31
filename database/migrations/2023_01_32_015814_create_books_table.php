@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->string("author");
-            $table->integer("year");  
+            $table->integer("year");
+            //perintah  data relasi isi tabel utama tdak bisa dihapus
+            //$table->foreignId("category_id")->constrained("categories")->onUpdate("cascade")->onDelete("restrict");
+            $table->foreignId("category_id")->constrained("categories")->onUpdate("cascade")->onDelete("cascade");  
             $table->timestamps();
         });
     }
