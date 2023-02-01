@@ -41,7 +41,7 @@ class BookController extends Controller
 
     public function index(Request $request){
         //untuk menampilkan semua data
-        $books = book::paginate(5);
+        $books = book::with("category")->paginate(5);
         $filterkeyword = $request->get('name');
         
          if($filterkeyword){
@@ -71,5 +71,11 @@ class BookController extends Controller
 
         return redirect()->route("book-index")->with('status','Sukses update data book');
 
+    }
+
+    public function show($id){
+        $category = category::all();
+        $book = book::where("id", $id)->first();
+        return view("admin.book.show", compact("book","category"));
     }
 }

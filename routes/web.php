@@ -27,7 +27,6 @@ Route::middleware('auth','CheckRole:admin')->group(function () {
     Route::get('/edit/{id}', [BookController::class, 'edit'])->name("book-edit");
     Route::delete('/delete/{id}', [BookController::class, 'destroy'])->name("book-delete");
     Route::put('/update/{id}', [BookController::class, 'update'])->name("book-update");
-
     //Route::view('/home','home', ['name' => 'cara ibnu']);
 
 });
@@ -36,6 +35,7 @@ Route::middleware('auth','CheckRole:admin')->group(function () {
 Route::middleware('auth','CheckRole:admin,user')->group(function () {
     //route book admin and user
     Route::get('/index', [BookController::class, 'index'])->name("book-index");
+    Route::get('/show/{id}', [BookController::class, 'show'])->name("book-show");
 
     //Route::view('/home','home', ['name' => 'cara ibnu']);
 

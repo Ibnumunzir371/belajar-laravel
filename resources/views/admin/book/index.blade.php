@@ -94,6 +94,7 @@
             <tr>
             <th scope="col">No</th> 
             <th scope="col">Nama Buku</th>
+            <th scope="col">Category</th>
             <th scope="col">Penulis</th>
             <th scope="col">Tahun Terbit</th>
             @if (Auth::user()->role == "admin")
@@ -106,6 +107,7 @@
             <tr>
             <th scope="row">{{$key + 1}}</th>
             <td>{{$item->name}}</td>
+            <td>{{$item->category->name}}</td>
             <td>{{$item->author}}</td>
             <td>{{$item->year}}</td>
             @if (Auth::user()->role == "admin")
@@ -113,6 +115,7 @@
                 <a class="btn btn-primary" href="{{route("book-edit", $item->id)}}">
                     Edit
                 </a>
+                
                 <form action="{{route("book-delete", $item->id)}}"
                     method="post" style="display: inline"
                     class="form-check-inline">
@@ -121,6 +124,9 @@
                     <button class="btn btn-danger"
                     type="submit">Hapus</button>
                 </form>
+                <a class="btn btn-success" href="{{route("book-show", $item->id)}}">
+                    Detail
+                </a>
             </td>
             @endif
             </tr>
