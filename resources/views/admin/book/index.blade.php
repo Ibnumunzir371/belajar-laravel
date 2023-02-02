@@ -115,7 +115,9 @@
                 <a class="btn btn-primary" href="{{route("book-edit", $item->id)}}">
                     Edit
                 </a>
-                
+                <a class="btn btn-success" href="{{route("book-show", $item->id)}}">
+                    Detail
+                </a>
                 <form action="{{route("book-delete", $item->id)}}"
                     method="post" style="display: inline"
                     class="form-check-inline">
@@ -124,9 +126,7 @@
                     <button class="btn btn-danger"
                     type="submit">Hapus</button>
                 </form>
-                <a class="btn btn-success" href="{{route("book-show", $item->id)}}">
-                    Detail
-                </a>
+                
             </td>
             @endif
             </tr>

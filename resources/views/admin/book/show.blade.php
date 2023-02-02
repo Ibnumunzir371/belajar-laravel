@@ -57,9 +57,6 @@
             <h1>Detail Book</h1>
         </div>
 
-        <div>
-        <p>Nama :</p>
-        </div>
         <p>{{$book->name}}</p>
         <p>{{$book->category->name}}</p>
         <p>{{$book->author}}</p>
